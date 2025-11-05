@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidur Sanghi - Research</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --text-dark: #2c2c2c;
+            --text-light: #6b7280;
+            --bg-white: #ffffff;
+            --bg-light: #f9fafb;
+            --accent-color: #c73e3a;
+            --border-light: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            padding: 0 40px;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            padding: 120px 40px;
+            background-color: var(--bg-light);
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .hero-affiliation {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 40px 0;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        /* Slider Section */
+        .slider-section {
+            background-color: var(--bg-white);
+            padding: 80px 40px;
+        }
+
+        .slider-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 60px;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+        }
+
+        .slide h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .slide-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .video-placeholder {
+            flex: 1;
+            min-width: 350px;
+            aspect-ratio: 16/9;
+            background-color: var(--text-dark);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .slide-text {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        .slide-text p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        .personality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .personality-card {
+            background-color: var(--bg-white);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+        }
+
+        .personality-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+
+        .personality-card h4 {
+            margin: 0 0 12px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .personality-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .slider-dot.active {
+            background-color: var(--accent-color);
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.95);
+            border: 1px solid var(--border-light);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+            z-index: 10;
+        }
+
+        .slider-arrow:hover {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .slider-arrow.prev { left: 20px; }
+        .slider-arrow.next { right: 20px; }
+
+        /* Content Sections */
+        .section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+        }
+
+        /* Updates */
+        .update-item {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .update-date {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .update-content {
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .update-content a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .update-content a:hover {
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* Publications */
+        .publication {
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: var(--bg-white);
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+        }
+
+        .publication:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .pub-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: var(--text-dark);
+        }
+
+        .pub-authors {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .pub-venue {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .pub-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        .pub-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .pub-link {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 6px 16px;
+            border: 1px solid var(--accent-color);
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .pub-link:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Research Interests */
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 30px 0;
+        }
+
+        .interest-tag {
+            background-color: var(--bg-white);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            border: 1px solid var(--border-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-white);
+            border-top: 1px solid var(--border-light);
+            padding: 40px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 20px;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .slide {
+                padding: 40px 20px;
+            }
+
+            .slide-content {
+                flex-direction: column;
+            }
+
+            nav {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#top" class="nav-logo">Vidur Sanghi</a>
+            <ul class="nav-links">
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="https://drive.google.com/file/d/1cGNn5bJUhHMluMFH4W8d1WgbFxQ_Qq-B/view?usp=sharing" target="_blank">CV</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero/About Section Combined -->
+    <section class="hero">
+        <div class="hero-container" style="max-width: 1200px;">
+            <div style="display: flex; gap: 60px; align-items: flex-start; flex-wrap: wrap;">
+                <!-- Left side: Text content -->
+                <div style="flex: 1; min-width: 500px;">
+                    <h1 style="font-size: 3.5rem; margin-bottom: 10px;">Vidur Sanghi</h1>
+                    
+                    <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text-dark); margin-bottom: 25px;">
+                        I am an undergraduate student at <a href="https://www.cmu.edu/" target="_blank" style="color: var(--accent-color); text-decoration: none;">Carnegie Mellon University</a> pursuing a degree in Computer Science. I am a researcher at the <a href="https://cmubig.github.io/" target="_blank" style="color: var(--accent-color); text-decoration: none;">roBot Intelligence Group (BIG)</a> and the <a href="https://www.ri.cmu.edu/robotics-groups/momentum-robotics-lab/" target="_blank" style="color: var(--accent-color); text-decoration: none;">Momentum Lab</a> in the <a href="https://www.ri.cmu.edu/" target="_blank" style="color: var(--accent-color); text-decoration: none;">Robotics Institute</a>, where I am advised by <a href="https://uksangyoo.github.io/" target="_blank" style="color: var(--accent-color); text-decoration: none;">Uksang Yoo</a>, <a href="https://ichnow.ski/" target="_blank" style="color: var(--accent-color); text-decoration: none;">Jeff Ichnowski</a>, and <a href="https://www.cs.cmu.edu/~jeanoh/" target="_blank" style="color: var(--accent-color); text-decoration: none;">Jean Oh</a>.
+                    </p>
+
+                    <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text-dark); margin-bottom: 25px;">
+                        I will soon be joining <a href="https://ethz.ch/en.html" target="_blank" style="color: var(--accent-color); text-decoration: none;">ETH Zürich</a> as a Visiting Research Assistant at the <a href="https://cvg.ethz.ch/index" target="_blank" style="color: var(--accent-color); text-decoration: none;">Computer Vision and Geometry (CVG) Lab</a>, where I will work with <a href="https://royyang0714.github.io/" target="_blank" style="color: var(--accent-color); text-decoration: none;">Yung-Hsu (Roy) Yang</a> under the supervision of <a href="https://people.inf.ethz.ch/pomarc/" target="_blank" style="color: var(--accent-color); text-decoration: none;">Prof. Marc Pollefeys</a>. My research there will focus on scene understanding and 3D object detection and tracking.
+                    </p>
+
+                    <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text-dark); margin-bottom: 25px;">
+                        My research interests are in soft robotics, reinforcement learning, computer vision, and developing AI systems that can work reliably in real-world scenarios. I'm particularly focused on bridging the gap between cutting-edge AI methods and practical applications where that technology can make a meaningful impact but doesn't yet work effectively. My research is generously supported by the BXA Grant Program and CMU SURA.
+                    </p>
+
+                    <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text-dark); margin-bottom: 25px;">
+                        Currently, I'm applying reinforcement learning to train soft robotic hands to perform delicate manipulation tasks. I'm working with <a href="https://www.bosch.com/research/about-bosch-research/our-research-experts/jonathan-francis/" target="_blank" style="color: var(--accent-color); text-decoration: none;">John Francis from Bosch AI</a> to develop an API controller for open-source research and make it development-ready. I presented my findings at the IEEE ICRA 2025 soft robotics reproducibility workshop in Atlanta, Georgia, and I'm currently working towards an IEEE T-RO publication.
+                    </p>
+
+                    <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text-dark); margin-bottom: 25px;">
+                        I'm also an advisor and developer at <a href="https://www.easeverticalai.com/" target="_blank" style="color: var(--accent-color); text-decoration: none;">Ease Vertical AI</a>, where we're building AI integration tools for small businesses with a focus on Go-To-Market strategy and lead generation. Additionally, I have joined Atomic VC, a venture capital studio, as a Machine Learning Intern where I advise on investments and apply ML to help their portfolio companies.
+                    </p>
+
+                    <div style="margin-top: 35px;">
+                        <h3 style="font-size: 1.3rem; margin-bottom: 20px; font-weight: 600;">Research Interests</h3>
+                        <div class="interests">
+                            <span class="interest-tag">Soft Robotics</span>
+                            <span class="interest-tag">Reinforcement Learning</span>
+                            <span class="interest-tag">Computer Vision</span>
+                            <span class="interest-tag">Deep Learning</span>
+                            <span class="interest-tag">3D Object Detection</span>
+                            <span class="interest-tag">Human-Robot Interaction</span>
+                            <span class="interest-tag">AI Applications</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right side: Photo -->
+                <div style="flex: 0 0 350px; min-width: 300px;">
+                    <img src="headshot.jpg" alt="Vidur Sanghi" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="section" style="background-color: var(--bg-white);">
+        <h2>Research & Publications</h2>
+        
+        <div class="publication">
+            <div class="pub-title">
+                Soft Robotic Hand Manipulation using Reinforcement Learning in SOFA
+            </div>
+            <div class="pub-authors">
+                <strong>Vidur Sanghi</strong>, CMU roBot Intelligence Group
+            </div>
+            <div class="pub-venue">
+                IEEE ICRA 2025 Soft Robotics Reproducibility Workshop (presented) • IEEE Transactions on Robotics (T-RO) - in preparation
+            </div>
+            <div class="pub-description">
+                Creating simulation environments in SOFA and applying reinforcement learning using OpenAI Gym to train soft robotic hands for delicate tasks like manipulating hair and in-hand object manipulation. Collaborating with Bosch AI to develop development-ready API controllers.
+            </div>
+            <div class="pub-links">
+                <a href="MOEPoster.pdf" target="_blank" class="pub-link">Slides</a>
+                <a href="#" class="pub-link">Code (coming soon)</a>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-title">
+                Saxophone Sonority: Analyzing Warm Tone Quality Through Audio Analysis and Neural Networks
+            </div>
+            <div class="pub-authors">
+                <strong>Vidur Sanghi</strong>
+            </div>
+            <div class="pub-venue">
+                Independent Research, January 2023 - Present
+            </div>
+            <div class="pub-description">
+                Published research on "warm tone quality" in saxophone performance, demonstrating that stronger overtones improve tone quality. Applied audio analysis to over 300 audio samples from open-source datasets (Northwestern, Michigan, CMU, UPenn, JHU) and used neural networks to analyze Mel Spectrograms. Findings shared through the podcast "Physics Meets Music."
+            </div>
+            <div class="pub-links">
+                <a href="https://nhsjs.com/wp-content/uploads/2023/12/Saxophone-Sonority-An-Acoustic-Explanation-of-What-Differentiates-the-Tone-Quality-of-Beginner-and-Professional-Alto-Saxophonists-2.pdf" target="_blank" class="pub-link">PDF</a>
+            </div>
+        </div>
+
+        <div class="publication">
+            <div class="pub-title">
+                The Intersection Dilemma For Bicyclists
+            </div>
+            <div class="pub-authors">
+                <strong>Vidur Sanghi</strong>
+            </div>
+            <div class="pub-venue">
+                CREST Award - Gold (2023) • Insight Science and Technology (InSciTech)
+            </div>
+            <div class="pub-description">
+                Analyzed accident physics and probability at intersections, demonstrating how signal timing leaves cyclists unprotected. Utilized CAD/modeling software (VectorWorks3D, 3DSSPP) and data collection with 3D Point Cloud cameras, drones, and binaural microphones.
+            </div>
+            <div class="pub-links">
+                <a href="https://drive.google.com/file/d/1_HtQdWqaRxrbjDcu_ogRvH3ecWqeyN5n/view?usp=drive_open" target="_blank" class="pub-link">PDF</a>
+            </div>
+        </div>
+
+        <h3 style="font-size: 1.5rem; margin: 60px 0 30px 0; font-weight: 600;">Projects & Technical Work</h3>
+        
+        <div class="publication">
+            <div class="pub-title">
+                Context-Forward Architecture for Small Business AI Integration
+            </div>
+            <div class="pub-authors">
+                <strong>Vidur Sanghi</strong>, Ease Vertical AI Team
+            </div>
+            <div class="pub-venue">
+                Ease Vertical AI (EVAI), December 2024 - Present
+            </div>
+            <div class="pub-description">
+                Contributor to Context-Forward architecture and discoverEase modules, prioritizing user feedback and using LLMs to pattern match on niche company databases for relevant small business results. Focus areas: Go-To-Market strategy, outreach messaging, lead generation/management, and ad campaigns.
+            </div>
+            <div class="pub-links">
+                <a href="https://www.easeverticalai.com/" target="_blank" class="pub-link">Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p style="margin-bottom: 20px; line-height: 1.8; color: var(--text-light);">
+            Feel free to reach out about research collaborations, speaking opportunities, or just to connect.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 15px; color: var(--text-light);">
+            <p><strong style="color: var(--text-dark);">Email:</strong> <a href="mailto:vsanghi@andrew.cmu.edu" style="color: var(--accent-color); text-decoration: none;">vsanghi@andrew.cmu.edu</a></p>
+            <p><strong style="color: var(--text-dark);">LinkedIn:</strong> <a href="https://www.linkedin.com/in/vidursanghi/" target="_blank" style="color: var(--accent-color); text-decoration: none;">linkedin.com/in/vidursanghi</a></p>
+            <p><strong style="color: var(--text-dark);">Personal Website:</strong> <a href="https://www.vidursanghi.com/" target="_blank" style="color: var(--accent-color); text-decoration: none;">vidursanghi.com</a></p>
+            <p><strong style="color: var(--text-dark);">GitHub:</strong> <a href="https://github.com/vidursanghi" target="_blank" style="color: var(--accent-color); text-decoration: none;">github.com/vidursanghi</a></p>
+        </div>
+    </section>
+
+    <!-- Slider Section -->
+    <section class="slider-section">
+        <div class="slider-container">
+            <button class="slider-arrow prev" onclick="changeSlide(-1)">‹</button>
+            <button class="slider-arrow next" onclick="changeSlide(1)">›</button>
+            
+            <div class="slider-wrapper" id="sliderWrapper">
+                <!-- Slide 1: Music -->
+                <div class="slide">
+                    <h2>Beyond the Code: Saxophone Performance</h2>
+                    <div class="slide-content">
+                        <div style="flex: 1; min-width: 350px; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; position: relative;">
+                            <a href="https://youtu.be/6Py8fOR8TnE" target="_blank" style="display: block; width: 100%; height: 100%; position: relative;">
+                                <img src="https://img.youtube.com/vi/6Py8fOR8TnE/maxresdefault.jpg" alt="Saxophone Performance" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.7); border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; transition: all 0.3s;">
+                                    <div style="width: 0; height: 0; border-left: 25px solid white; border-top: 15px solid transparent; border-bottom: 15px solid transparent; margin-left: 8px;"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="slide-text">
+                            <p>Music has been a core part of my journey alongside technology. I'm pursuing a dual degree in Computer Science and Saxophone Performance at Carnegie Mellon, where I blend analytical thinking with creative expression.</p>
+                            <p>Through my podcast "Physics Meets Music," I explore the intersection of science and art, sharing insights from my research on saxophone tone quality and helping students improve their craft.</p>
+                            <p><strong style="color: var(--text-dark);">Follow my musical journey on <a href="https://www.instagram.com/vidursax/" target="_blank" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px solid var(--accent-color);">Instagram @vidursax</a></strong></p>
+                            <div style="margin-top: 20px;">
+                                <a href="https://drive.google.com/file/d/1OEB9lewyPxtHJzbsFuDzhIpJZK-jFf9x/view?usp=sharing" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: var(--accent-color); color: white; text-decoration: none; border-radius: 6px; font-weight: 500; transition: all 0.2s;">Download Music Resume</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Impact -->
+                <div class="slide">
+                    <h2>Making an Impact</h2>
+                    <div class="slide-text" style="max-width: 100%;">
+                        <div style="margin-bottom: 35px;">
+                            <h3 style="font-size: 1.3rem; margin-bottom: 15px; font-weight: 600;"><a href="https://www.musicandgoodinconcert.org/" target="_blank" style="color: var(--text-dark); text-decoration: none; border-bottom: 2px solid var(--accent-color);">Music and Good In Concert (Magic)</a></h3>
+                            <p>What started as a response to the pandemic became a global movement. Magic brought together amateur and professional artists from around the world to create 100+ hours of content that raised approximately $50,000 for those who needed it most.</p>
+                            <p><strong style="color: var(--text-dark);">Community Built:</strong> 200+ artists, 300+ volunteers and donors</p>
+                            <p><strong style="color: var(--text-dark);">Sponsors & Media:</strong> NTT, KAAJ Ventures, Econic Company, Bay City News, Empathy Summit - Korea, Outlook</p>
+                        </div>
+                        
+                        <div style="margin-bottom: 35px;">
+                            <h3 style="font-size: 1.3rem; margin-bottom: 15px; font-weight: 600;">Research Philosophy</h3>
+                            <p>I believe in making research accessible and reproducible. That's why I'm working to develop open-source API controllers with Bosch AI and presented at the IEEE ICRA reproducibility workshop.</p>
+                            <p>Whether it's helping students improve their saxophone technique through neural network analysis or training soft robots to perform delicate tasks, I'm passionate about applying cutting-edge technology to real-world problems.</p>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size: 1.3rem; margin-bottom: 15px; font-weight: 600;">Beyond Tech</h3>
+                            <p>🍵 Tea appreciation • ⛳ Golf • 🍜 Food enthusiast • 🎯 Strategy games</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-nav">
+                <span class="slider-dot active" onclick="goToSlide(0)"></span>
+                <span class="slider-dot" onclick="goToSlide(1)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Last updated: November 2025</p>
+        <p style="margin-top: 10px;">© 2025 Vidur Sanghi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const sliderWrapper = document.getElementById('sliderWrapper');
+
+        function goToSlide(n) {
+            currentSlide = n;
+            updateSlider();
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            } else if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            }
+            
+            updateSlider();
+        }
+
+        function updateSlider() {
+            sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Auto-advance slider disabled
+        // setInterval(() => {
+        //     changeSlide(1);
+        // }, 8000);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
